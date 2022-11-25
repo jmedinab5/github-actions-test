@@ -1,0 +1,17 @@
+name: Shell Commands # This is the name of the entire workflow
+
+on: [push, pull-request] # Defines when to execute an action depending on events
+
+jobs:
+  
+  run-shell-command: # Job Name
+    
+    runs-on: ubuntu-latest # Defines in which VM the job will be executed (Win, Mac, Linux or Docker Cont)
+
+    steps: # Array of objects
+      - name: Say hello
+        run: echo "Greetings from Github Actions!"
+      - name: Say goodbye
+        run: |
+          echo "Goodbye from Github Actions!"
+          echo "See you!"
