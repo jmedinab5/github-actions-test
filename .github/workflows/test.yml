@@ -1,6 +1,6 @@
 name: Shell Commands # This is the name of the entire workflow
 
-on: [push, pull-request] # Defines when to execute an action depending on events
+on: [push] # Defines when to execute an action depending on events
 
 jobs:
   
