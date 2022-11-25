@@ -1,4 +1,4 @@
-name: Shell Commands # This is the name of the entire workflow
+name: Shell Commands # This is the name of the entire workflow (pipeline)
 
 on: [push] # Defines when to execute an action depending on events
 
@@ -15,3 +15,8 @@ jobs:
         run: |
           echo "Goodbye from Github Actions!"
           echo "See you!"
+      - name: Python Command
+        run: |
+          import platform
+          print (platform.processor())
+      shell: python
