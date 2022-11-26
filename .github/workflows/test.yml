@@ -5,9 +5,7 @@ on: [push] # Defines when to execute an action depending on events
 jobs:
   
   run-shell-command: # Job Name
-    
     runs-on: ubuntu-latest # Defines in which VM the job will be executed (Win, Mac, Linux or Docker Cont)
-
     steps: # Array of objects
       - name: Say hello
         run: echo "Greetings from Github Actions!"
@@ -23,6 +21,7 @@ jobs:
 
   windows-job:
     runs-on: windows-latest
+    needs: [run-shell-command]
     steps:
       - name: Directory Powershell
         run: Get-Location
