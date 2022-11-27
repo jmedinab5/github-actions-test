@@ -1,0 +1,18 @@
+name: Actions Workflow
+
+on: [push]
+
+jobs:
+  
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet
+        #uses: ./actions.yml # Reference to an action
+        #uses: actions/hello-world-javascript-action@master  # We can reference branches or version like @v1.1 or even a commit with @as2fgb26
+        uses: actions/hello-world-javascript-action@master  # Reference to an action
+        with: 
+          who-to-greet: Bon Jovi
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"    
