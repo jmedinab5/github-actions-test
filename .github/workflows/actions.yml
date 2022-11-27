@@ -13,6 +13,7 @@ jobs:
           ls -a
       - name: Perform a checkout
         uses: actions/checkout@v1
+      - name: List files after checkout  
         run: |
           pwd
           ls
