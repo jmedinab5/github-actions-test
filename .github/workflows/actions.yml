@@ -16,7 +16,7 @@ jobs:
       - name: List files after checkout  
         run: |
           pwd
-          ls
+          ls -a
       - name: Simple JS Action
         id: greet
         #uses: ./actions.yml # Reference to an action
