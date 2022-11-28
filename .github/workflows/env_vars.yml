@@ -22,5 +22,5 @@ jobs:
           echo "The WF var is: ${WF_VAR}"
           echo "The Step var is: ${STEP_VAR}"
           echo -e "\e[31m \e[1m \n ERROR: Testing the log opts .....\n \e[0m"
-          echo "This is the secret: $SECRET_VAR"
+          echo "This is the secret: ${SECRET_VAR}"
 
