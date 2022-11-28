@@ -20,7 +20,7 @@ jobs:
           args: -v
         # Echo the node version of this step container based on this 12.14.1-alpine3.10 image
       - name: Step with docker to echo a string
-        uses: docker://python:3.12.0a2-alpine3.15
+        uses: docker://node:19-alpine3.15
         with:
           entrypoint: /bin/echo
           args: Hello Docker !
