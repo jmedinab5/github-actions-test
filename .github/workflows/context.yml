@@ -1,0 +1,11 @@
+name: Context
+jobs:
+  functions:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: print-functions-results
+        run: |
+          echo ${{ contains( 'hello', 'll') }}
+          echo ${{ startsWith( 'hello', 'he') }}
+          echo ${{ endsWith( 'hello', 'lo') }}
+          echo ${{ format( 'hello' {0} {1} {2}, 'world', '!', '!') }}
