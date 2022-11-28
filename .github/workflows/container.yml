@@ -15,9 +15,12 @@ jobs:
           cat /etc/os-release
       - name: Log the step container node version
         uses: docker://node:12.14.1-alpine3.10
-        run: cat /etc/os-release
-          
+        with:
+          entrypoint: usr/local/bin/echo
+          args: -v
         # Echo the node version of this step container based on this 12.14.1-alpine3.10 image
       - name: Step with docker to echo a string
         uses: docker://python:3.12
-        run: cat /etc/os-release
+        with:
+          entrypoint: /bin/echo
+          args: Hello Docker !
