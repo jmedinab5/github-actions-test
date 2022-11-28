@@ -7,6 +7,27 @@ env:
   WF_VAR: "This var is global"
 
 jobs:
+  push-random-file:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: auth with github repo
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "test@conveyor.com"
+          git config --global user.name "Conveyor"
+          git fetch
+          git checkout "main"
+          git branch --set-upstream-to=origin/main
+          git pull
+          ls -larth
+          echo $RANDOM >> random.txt
+          ls -larth
+          git add .
+          git commit -m "Add random file" && git push
+  
   print-vars:
     runs-on: ubuntu-latest
     # Job variables
