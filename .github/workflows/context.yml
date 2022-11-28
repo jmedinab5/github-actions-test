@@ -3,7 +3,7 @@ on: [push]
 jobs:
 
   functions:
-    if: github.event_name == "push" # This job will only run in push events
+    if: github.event_name == 'push' # This job will only run in push events
     runs-on: ubuntu-18.04
     steps:
       - name: print-functions-results
