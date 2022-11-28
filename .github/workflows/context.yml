@@ -10,3 +10,4 @@ jobs:
           echo ${{ startsWith( 'hello', 'he') }}
           echo ${{ endsWith( 'hello', 'lo') }}
           echo ${{ format( 'hello' {0} {1} {2}, 'world', '!', '!') }}
+          
