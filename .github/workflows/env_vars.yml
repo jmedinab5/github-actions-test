@@ -1,0 +1,23 @@
+name: Environment variables example
+
+on: [push]
+
+# Variables for the whole Workflow
+env:
+  WF_VAR: "This var is global"
+
+jobs:
+  print-vars:
+    runs-on: ubuntu-latest
+    # Job variables
+    env:
+      JOB_VAR: "This is a job variable!"
+    steps:
+      - name: Print env vars
+        env:
+          STEP_VAR: "Hey there! i'm the step variable!"
+        run: |
+          echo "The Job var is: ${JOB_VAR}"
+          echo "The WF var is: ${WF_VAR}"
+          echo "The Step var is: ${STEP_VAR}"
+
