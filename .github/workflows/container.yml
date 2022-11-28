@@ -24,3 +24,9 @@ jobs:
         with:
           entrypoint: /bin/echo
           args: Hello Docker !
+  
+  check-maven:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check mvn version
+        run: mvn -v
