@@ -34,4 +34,5 @@ jobs:
   test-template:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: jmedinab5/conveyor-maven-template/blob/main/actions/maven-template.yml@main
