@@ -1,6 +1,25 @@
 name: Actions Workflow
 
-on: [push]
+on:
+  # schedule:
+  #   - cron: "0/5 * * * *"
+  #   - cron: "0/6 * * * *"
+  push:
+    branches:
+      - main # the Workflow only wil run by a push on main branch
+      - 'feature-**' # the Workflow only wil run by a push on a branch starting w/ feature-
+      - '!conveyor' # the Workflow won't run in the branch called "conveyor"
+    # branches-ignore: # This is to specify in which branches not to run the workflow
+    #   - "main"
+    tags: # This works exact as branches, also w/ tags-ignore
+      - v1
+    paths:
+      - "**.java" # Will run anytime you push a Java file
+      - "!class.java" # Will work for all .java files except this one.
+    # paths-ignore: # Only will when include at least one file outside the src directory
+    #   - "src/**"
+  pull_request:
+    types: [closed, assigned, opened]
 
 jobs:
   
