@@ -32,5 +32,6 @@ jobs:
         run: mvn -v
   
   test-template:
+    runs-on: ubuntu-latest
     steps:
       - uses: jmedinab5/conveyor-maven-template/blob/main/actions/maven-template.yml@main
