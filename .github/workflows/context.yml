@@ -1,7 +1,9 @@
 name: Context
 on: [push]
 jobs:
+
   functions:
+    if: github.event_name == "push" # This job will only run in push events
     runs-on: ubuntu-18.04
     steps:
       - name: print-functions-results
@@ -10,3 +12,19 @@ jobs:
           echo ${{ startsWith( 'hello', 'he') }}
           echo ${{ endsWith( 'hello', 'lo') }}
           echo ${{ format('Hello {0} {1} {2}', 'World', '!', '!') }}
+  
+  dump-github-context:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Github Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Github job Context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Github steps Context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$GITHUB_CONTEXT"
