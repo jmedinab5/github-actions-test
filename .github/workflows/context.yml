@@ -21,10 +21,13 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Github job Context
+        if: failure() # This step will run if the previous one fails
+        # There is also, a cancelled and success events
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Github steps Context
+        if: always() # This step will run always no matter what
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$GITHUB_CONTEXT"

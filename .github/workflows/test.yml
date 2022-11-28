@@ -6,9 +6,11 @@ jobs:
   
   run-shell-command: # Job Name
     runs-on: ubuntu-latest # Defines in which VM the job will be executed (Win, Mac, Linux or Docker Cont)
+    timeout-minutes: 360 #Specify the max number of minutes that the job can run, otherwise Github will cancell it
     steps: # Array of objects
       - name: Say hello
         run: echo "Greetings from Github Actions!"
+        continue-on-error: true # Equivalent to allow to failure 
       - name: Say goodbye
         run: |
           echo "Goodbye from Github Actions!"
