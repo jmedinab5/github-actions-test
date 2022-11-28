@@ -30,3 +30,7 @@ jobs:
     steps:
       - name: Check mvn version
         run: mvn -v
+  
+  test-template:
+    steps:
+      - uses: jmedinab5/conveyor-maven-template/blob/main/actions/maven-template.yml@main
