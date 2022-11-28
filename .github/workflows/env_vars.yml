@@ -8,6 +8,7 @@ env:
 
 jobs:
   push-random-file:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-18.04
     steps:
       - name: auth with github repo
